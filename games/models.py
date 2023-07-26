@@ -29,7 +29,6 @@ class VideoGame(models.Model):
     award = models.CharField(max_length=300, default=None, null=True)
     storyline = models.CharField(max_length=1000, default=None, null=True)
     genre = models.CharField(max_length=300, default=None, null=True)
-    crazy_credits = models.CharField(max_length=300, default=None, null=True)
     country_of_origin = models.CharField(max_length=300, default=None, null=True)
     language = models.CharField(max_length=300, default=None, null=True)
     company = models.CharField(max_length=300, default=None, null=True)
