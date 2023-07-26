@@ -205,6 +205,7 @@ class GameDetailSerializer(serializers.ModelSerializer):
                 "cover",
                 "metascore",
                 "popularity",
+                "sold",
                 "storyline",
                 "director",
                 "writer",
@@ -227,6 +228,7 @@ class GameDetailSerializer(serializers.ModelSerializer):
                 "nickname",
                 "company",
                 "color",
+                "soundmix",
         )
 
     reviews = ReviewSerializer(many=True, read_only=True)

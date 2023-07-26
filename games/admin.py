@@ -1,7 +1,8 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import (VideoGame, 
+from .models import (
+        VideoGame, 
         Review, 
         Video, 
         Photo, 
@@ -100,6 +101,27 @@ class CastAdmin(admin.ModelAdmin):
     list_display = ("name", "id", "cover", "born","game",)
 
 class GameAdmin(admin.ModelAdmin):
+    fields = [
+                "title",
+                "cover",
+                "metascore",
+                "popularity",
+                "sold",
+                "storyline",
+                "director",
+                "writer",
+                "award",
+                "genre",
+                "certificate",
+                "release_date",
+                "country_of_origin",
+                "officialsite",
+                "language",
+                "nickname",
+                "company",
+                "color",
+                "soundmix",
+        ]
     inlines = [
             WatchListInLine,
             RatingInLine,
