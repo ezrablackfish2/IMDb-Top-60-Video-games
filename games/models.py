@@ -160,7 +160,7 @@ class Video(models.Model):
             default=None,
     )
 
-    video = models.FileField(upload_to="videos/", null=True, default=None)
+    video = models.CharField(max_length=1000, null=True, default=None)
     def __str__(self):
         return f"{self.game.title} videos"
 class SoundTrack(models.Model):
@@ -317,7 +317,7 @@ class CastVideo(models.Model):
             default=None,
     )
 
-    castvideo = models.FileField(upload_to="cast/videos/", null=True, default=None)
+    castvideo = models.CharField(max_length=1000, null=True, default=None)
     def __str__(self):
         return f"{self.game.name} videos"
 
