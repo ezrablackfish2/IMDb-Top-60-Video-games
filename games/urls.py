@@ -15,6 +15,11 @@ from .views import (
         PhotoList,
         VideoList,
         TriviaList,
+        ParentalGuideList,
+        GoofList,
+        QuoteList,
+        SoundTrackList,
+
 )
 
 urlpatterns = [
@@ -28,6 +33,10 @@ urlpatterns = [
         path("<uuid:videogame_id>/video/", VideoList.as_view(), name="video_list"),
         path("<uuid:videogame_id>/photo/", PhotoList.as_view(), name="photo_list"),
         path("<uuid:videogame_id>/trivia/", TriviaList.as_view(), name="trivia_list"),
+        path("<uuid:videogame_id>/certificate/", ParentalGuideList.as_view(), name="certificate_list"),
+        path("<uuid:videogame_id>/goof/", GoofList.as_view(), name="goof_list"),
+        path("<uuid:videogame_id>/quote/", QuoteList.as_view(), name="quote_list"),
+        path("<uuid:videogame_id>/soundtrack/", SoundTrackList.as_view(), name="soundtrack_list"),
         path("search/", SearchResultsListView.as_view(), name="search_results"),
         path("help/", HelpList.as_view(), name="help"),
         path("about/", About.as_view(), name="about"),
