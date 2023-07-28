@@ -278,6 +278,7 @@ class Cast(models.Model):
             null=True,
             default=None,
     )
+    role = models.CharField(max_length=1000, null=True, default=None)
     cover = models.ImageField(upload_to="covers/", default=None, null=True, blank=True)
     name = models.CharField(max_length=300, default=None, null=True)
     nickname = models.CharField(max_length=50, default=None, null=True)

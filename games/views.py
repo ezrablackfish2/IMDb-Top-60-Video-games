@@ -10,6 +10,22 @@ from .models import (
         WatchList,
         Review,
         Cast,
+        Video,
+        SoundTrack,
+        Photo,
+        Trivia,
+        Goof,
+        Quote,
+        FrequentlyAskedQuestion,
+        ParentsGuide,
+        CastVideo,
+        CastPhoto,
+        CastTrivia,
+        CastGoof,
+        CastQuote,
+        CastSalary,
+        CastTrademark,
+        CastFaqs,
 )
 from .serializers import (
         GameListSerializer,
@@ -22,6 +38,22 @@ from .serializers import (
         WatchListSerializer,
         CastSerializer,
         CastDetailSerializer,
+        VideoSerializer,
+        PhotoSerializer,
+        TriviaSerializer,
+        GoofSerializer,
+        QuoteSerializer,
+        FrequentlyAskedQuestionSerializer,
+        ParentalGuideSerializer,
+        SoundTrackSerializer,
+        CastPhotoSerializer,
+        CastVideoSerializer,
+        CastTriviaSerializer,
+        CastGoofSerializer,
+        CastQuoteSerializer,
+        CastSalarySerializer,
+        CastTrademarkSerializer,
+        CastFaqsSerializer,
 )
 
 # Create your views here.
@@ -151,3 +183,66 @@ class About(generics.ListAPIView):
 
 class Contact(generics.ListAPIView):
     pass
+
+class VideoList(generics.ListAPIView):
+    serializer_class = VideoSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return Video.objects.filter(game=video_game)
+
+class PhotoList(generics.ListAPIView):
+    serializer_class = PhotoSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return Photo.objects.filter(game=video_game)
+
+class TriviaList(generics.ListAPIView):
+    serializer_class = TriviaSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return Trivia.objects.filter(game=video_game)
+
+class ParentalGuideList(generics.ListAPIView):
+    serializer_class = ParentalGuideSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return ParentsGuide.objects.filter(game=video_game)
+
+class GoofList(generics.ListAPIView):
+    serializer_class = GoofSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return Goof.objects.filter(game=video_game)
+
+class QuoteList(generics.ListAPIView):
+    serializer_class = QuoteSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return Quote.objects.filter(game=video_game)
+
+class SoundTrackList(generics.ListAPIView):
+    serializer_class = SoundTrackSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return SoundTrack.objects.filter(game=video_game)

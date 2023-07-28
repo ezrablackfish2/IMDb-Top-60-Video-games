@@ -101,6 +101,18 @@ class ParentsGuideSerializer(serializers.ModelSerializer):
         model = ParentsGuide
         fields = ('certification',)
 
+class ParentalGuideSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ParentsGuide
+        fields = (
+                'certification',
+                'nudity',
+                'violence',
+                'profanity',
+                'drugs',
+                'intense_scene',
+                )
+
 class HelpListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Help
@@ -109,7 +121,7 @@ class HelpListSerializer(serializers.ModelSerializer):
 class CastSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cast
-        fields = ('cover', 'name', )
+        fields = ('cover', 'name', 'role')
 
 class SoundTrackSerializer(serializers.ModelSerializer):
     class Meta:
