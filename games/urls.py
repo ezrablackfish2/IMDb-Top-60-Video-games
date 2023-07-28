@@ -19,6 +19,7 @@ from .views import (
         GoofList,
         QuoteList,
         SoundTrackList,
+        CastTriviaList,
 
 )
 
@@ -27,6 +28,7 @@ urlpatterns = [
         path("<uuid:pk>/", GameDetail.as_view(), name="game_detail"),
         path("<uuid:videogame_id>/casts/", CastList.as_view(), name="cast_list"),
         path("<uuid:videogame_id>/casts/<uuid:id>/", CastDetail.as_view(), name="cast_detail"),
+        path("<uuid:videogame_id>/casts/<uuid:cast_id>/trivia/", CastTriviaList.as_view(), name="cast_trivia_list"),
         path("<uuid:videogame_id>/rating/", GameRate.as_view(), name="game_rating"),
         path("<uuid:videogame_id>/watchlist/", GameWatchList.as_view(), name="game_watchlist"),
         path("<uuid:videogame_id>/review/", GameReview.as_view(), name="game_review"),

@@ -269,10 +269,10 @@ class CastTriviaList(generics.ListAPIView):
     serializer_class = CastTriviaSerializer
 
     def get_queryset(self):
-        video_game_id = self.kwargs['videogame_id']
-        video_game = VideoGame.objects.get(id=video_game_id)
+        cast_id = self.kwargs['cast_id']
+        cast = Cast.objects.get(id=cast_id)
 
-        return CastTrivia.objects.filter(game=video_game)
+        return CastTrivia.objects.filter(game=cast)
 
 class CastGoofList(generics.ListAPIView):
     serializer_class = CastGoofSerializer
@@ -314,7 +314,7 @@ class CastFaqsList(generics.ListAPIView):
     serializer_class = CastFaqsSerializer
 
     def get_queryset(self):
-        video_game_id = self.kwargs['videogame_id']
-        video_game = VideoGame.objects.get(id=video_game_id)
+        cast_id = self.kwargs['cast_id']
+        cast = Cast.objects.get(id=cast_id)
 
-        return CastFaqs.objects.filter(game=video_game)
+        return CastFaqs.objects.filter(game=cast)
