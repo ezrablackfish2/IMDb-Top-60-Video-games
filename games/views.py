@@ -246,3 +246,75 @@ class SoundTrackList(generics.ListAPIView):
         video_game = VideoGame.objects.get(id=video_game_id)
 
         return SoundTrack.objects.filter(game=video_game)
+
+class CastVideoList(generics.ListAPIView):
+    serializer_class = CastVideoSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return CastVideo.objects.filter(game=video_game)
+
+class CastPhotoList(generics.ListAPIView):
+    serializer_class = CastPhotoSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return CastPhoto.objects.filter(game=video_game)
+
+class CastTriviaList(generics.ListAPIView):
+    serializer_class = CastTriviaSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return CastTrivia.objects.filter(game=video_game)
+
+class CastGoofList(generics.ListAPIView):
+    serializer_class = CastGoofSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return CastGoof.objects.filter(game=video_game)
+
+class CastQuoteList(generics.ListAPIView):
+    serializer_class = CastQuoteSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return CastQuote.objects.filter(game=video_game)
+
+class CastSalaryList(generics.ListAPIView):
+    serializer_class = CastSalarySerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return CastSalary.objects.filter(game=video_game)
+
+class CastTrademarkList(generics.ListAPIView):
+    serializer_class = CastTrademarkSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return CastTrademark.objects.filter(game=video_game)
+
+class CastFaqsList(generics.ListAPIView):
+    serializer_class = CastFaqsSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return CastFaqs.objects.filter(game=video_game)
