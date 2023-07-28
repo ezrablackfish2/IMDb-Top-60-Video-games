@@ -247,6 +247,15 @@ class SoundTrackList(generics.ListAPIView):
 
         return SoundTrack.objects.filter(game=video_game)
 
+class FAQList(generics.ListAPIView):
+    serializer_class = FrequentlyAskedQuestionSerializer
+
+    def get_queryset(self):
+        video_game_id = self.kwargs['videogame_id']
+        video_game = VideoGame.objects.get(id=video_game_id)
+
+        return FrequentlyAskedQuestion.objects.filter(game=video_game)
+
 class CastVideoList(generics.ListAPIView):
     serializer_class = CastVideoSerializer
 
