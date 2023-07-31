@@ -83,7 +83,8 @@ CORS_ORIGIN_WHITELIST = (
 "http://localhost:8000",
 )
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]
+CSRF_TRUSTED_ORIGINS = ["https://imdb-top-60-video-games-ezra.onrender.com"]
+
 
 ROOT_URLCONF = "imdb_project.urls"
 
