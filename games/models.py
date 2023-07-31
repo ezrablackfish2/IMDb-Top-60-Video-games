@@ -286,11 +286,11 @@ class Cast(models.Model):
     award = models.CharField(max_length=300, default=None, null=True)
     bio = models.CharField(max_length=1000, default=None, null=True)
     children = models.CharField(max_length=300, default=None, null=True)
-    reatives = models.CharField(max_length=300, default=None, null=True)
+    relatives = models.CharField(max_length=300, default=None, null=True)
     country_of_origin = models.CharField(max_length=300, default=None, null=True)
     language = models.CharField(max_length=300, default=None, null=True)
     parents = models.CharField(max_length=300, default=None, null=True)
-    alsoknownas  = models.CharField(max_length=300, default=None, null=True)
+    officialsite  = models.CharField(max_length=300, default=None, null=True)
     born = models.DateField(default=None, null=True)
     starmeter = models.IntegerField(default=None, null=True)
     Height = models.DecimalField(

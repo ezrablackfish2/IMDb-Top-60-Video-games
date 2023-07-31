@@ -90,12 +90,31 @@ class CastInLine(admin.StackedInline):
     fields = ("cover", "name", "role")
 
 class CastAdmin(admin.ModelAdmin):
+    fields = (
+            'name',
+            'cover',
+            'starmeter',
+            'bio',
+            'award',
+            'officialsite',
+            'nickname',
+            'Height',
+            'born',
+            'country_of_origin',
+            'language',
+            'spouses',
+            'children',
+            'parents',
+            'relatives',
+    )
+
     inlines = [
             CastVideoInLine,
             CastPhotoInLine,
             CastTriviaInLine,
-            CastGoofInLine,
             CastQuoteInLine,
+            CastTrademarkInLine,
+            CastSalaryInLine,
             CastFaqsInLine,
     ]
     list_display = ("name", "id", "cover", "born","game",)
