@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
-    
+
+    "social_django",
     "rest_framework",
     "corsheaders",
     "rest_framework.authtoken",
@@ -177,17 +178,26 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 AUTH_USER_MODEL = "accounts.IMDbUser"
+
 AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
-            'client_id': '161998764704-porbctmsp8b1k329g03k3b2etmepg17q.apps.googleusercontent.com',
-            'secret': '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',
-            'redirect_uri': 'http://127.0.0.1:8000/accounts/google/login/callback/',
+            'client_id': '618240529694-8fhfce473o99irdq44u09ir4os0m1rrh.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
         }
     }
+}
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
 }
 LOGIN_REDIRECT_URL = '/'

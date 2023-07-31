@@ -3,6 +3,7 @@ from .models import IMDbUser
 from games.models import WatchList, Rating, Review
 from .serializers import WatchListSerializer, RatingSerializer, ReviewSerializer, AccountSerializer
 
+
 class MyWatchList(generics.ListAPIView):
     serializer_class = WatchListSerializer
     
@@ -27,3 +28,4 @@ class MyReview(generics.ListAPIView):
 class MyAccount(generics.ListCreateAPIView):
     serializer_class = AccountSerializer
     queryset = IMDbUser.objects.all()
+

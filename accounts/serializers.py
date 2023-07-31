@@ -3,6 +3,7 @@ from games.serializers import GameListSerializer
 from .models import IMDbUser
 from games.models import WatchList, Rating, Review
 
+
 class WatchListSerializer(serializers.ModelSerializer):
     game = GameListSerializer()
     class Meta:
@@ -25,3 +26,4 @@ class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = IMDbUser
         fields = ("cover", "username", "user_id", "bio", "nickname",)
+
