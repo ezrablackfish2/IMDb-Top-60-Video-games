@@ -78,14 +78,26 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-#CORS_ORIGIN_WHITELIST = (
-#"http://172.18.0.1:3000",
-#"http://localhost:3000",
-#"http://localhost:8000",
-#"http://0.0.0.0:8000",
-#)
+CORS_ORIGIN_WHITELIST = (
+"https://imdb-top-60-video-games-ezra-lnlm.onrender.com",
+"http://172.18.0.1:3000",
+"http://localhost:3000",
+"http://localhost:8000",
+"http://0.0.0.0:8000",
+"https://imdb-top-60-video-games-ezra.onrender.com",
+)
 
-CORS_ALLOW_ALL_ORIGINS = True;
+#CORS_ALLOW_ALL_ORIGINS = True
+#CORS_ALLOWED_ORIGINS = [
+#    'https://imdb-top-60-video-games-ezra-lnlm.onrender.com',
+#    'http://0.0.0.0:8000',
+#    'http://localhost:8000',
+#    'http://localhost:3000',
+#    'http://172.18.0.1:3000',
+#    'https://imdb-top-60-video-games-ezra.onrender.com',
+#]
+
+
 CORS_ALLOW_CREDENTIALS = True;
 
 CORS_ALLOW_METHODS = [
