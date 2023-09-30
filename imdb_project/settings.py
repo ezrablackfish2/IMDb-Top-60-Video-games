@@ -140,19 +140,19 @@ WSGI_APPLICATION = "imdb_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "postgres",
-        "PASSWORD": "imdb@12345",
-        "HOST": "db",
-        "PORT": 5432,
-    }
-}
 #DATABASES = {
-#        "default": dj_database_url.parse("postgres://imdbgames_user:4d5HJyuSj5tzayyM5EqnSCVi1BRIgMvV@dpg-civs6q6nqql48o2gd1cg-a.ohio-postgres.render.com/imdbgames")
-#        }
+#    "default": {
+#        "ENGINE": "django.db.backends.postgresql",
+#        "NAME": "postgres",
+#        "USER": "postgres",
+#        "PASSWORD": "imdb@12345",
+#        "HOST": "db",
+#        "PORT": 5432,
+#    }
+#}
+DATABASES = {
+        "default": dj_database_url.parse("postgres://imdbgames_user:4d5HJyuSj5tzayyM5EqnSCVi1BRIgMvV@dpg-civs6q6nqql48o2gd1cg-a.ohio-postgres.render.com/imdbgames")
+        }
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
