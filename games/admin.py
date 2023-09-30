@@ -12,7 +12,7 @@ from .models import (
         FrequentlyAskedQuestion, 
         ParentsGuide, 
         Rating, 
-        WatchList, 
+        WatchList,
         Help, 
         SoundTrack, 
         Cast, 
@@ -24,8 +24,17 @@ from .models import (
         CastSalary,
         CastTrademark,
         CastFaqs,
+        Platform,
+        Genre,
+        Thumbnail,
 )
 
+class ThumbnailInLine(admin.TabularInline):
+    model = Thumbnail
+class GenreInLine(admin.TabularInline):
+    model = Genre
+class PlatformInLine(admin.TabularInline):
+    model = Platform
 class WatchListInLine(admin.TabularInline):
     model = WatchList
 
@@ -133,6 +142,7 @@ class GameAdmin(admin.ModelAdmin):
                 "genre",
                 "certificate",
                 "release_date",
+                "year",
                 "country_of_origin",
                 "officialsite",
                 "language",
@@ -154,8 +164,11 @@ class GameAdmin(admin.ModelAdmin):
             SoundTrackInLine,
             ReviewInLine,
             FAQInLine,
+            PlatformInLine,
+            GenreInLine,
+            ThumbnailInLine,
     ]
-    list_display = ("title","id", "cover","certificate", "release_date", "imdb_rating",)
+    list_display = ("title","id", "cover","certificate", "year", "imdb_rating",)
 
 admin.site.register(VideoGame, GameAdmin)
 admin.site.register(Help)

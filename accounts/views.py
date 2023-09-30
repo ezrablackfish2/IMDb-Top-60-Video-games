@@ -1,7 +1,7 @@
 from rest_framework import generics
 from .models import IMDbUser
 from games.models import WatchList, Rating, Review
-from .serializers import WatchListSerializer, RatingSerializer, ReviewSerializer, AccountSerializer
+from .serializers import WatchListSerializer, RatingSerializer, ReviewSerializer, AccountSerializer, UserSerializer
 
 
 class MyWatchList(generics.ListAPIView):
@@ -29,3 +29,6 @@ class MyAccount(generics.ListCreateAPIView):
     serializer_class = AccountSerializer
     queryset = IMDbUser.objects.all()
 
+class AllUsers(generics.ListAPIView):
+    serializer_class = UserSerializer
+    queryset = IMDbUser.objects.all()

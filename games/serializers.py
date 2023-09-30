@@ -23,16 +23,42 @@ from .models import (VideoGame,
         CastSalary,
         CastTrademark,
         CastFaqs,
+        Platform,
+        Genre,
+        Thumbnail,
 )
 
+class ThumbnailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Thumbnail
+        fields = ('thumbnail',)
+
+class GenreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Genre
+        fields = ('genre',)
+
+class PlatformSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Platform
+        fields = ('platform',)
+
+
 class GameListSerializer(serializers.ModelSerializer):
+    genra = GenreSerializer(many=True, read_only=True)
+    platform = PlatformSerializer(many=True, read_only=True)
     class Meta:
         fields = (
+                "id",
                 "title",
                 "cover",
                 "release_date",
+                "year",
                 "imdb_rating",
+                "metascore",
                 "certificate",
+                "platform",
+                "genra",
         )
         model = VideoGame
 
@@ -181,6 +207,7 @@ class CastDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cast
         fields = (
+                'id',
                 'name',
                 'cover',
                 'starmeter' ,
@@ -207,6 +234,10 @@ class CastDetailSerializer(serializers.ModelSerializer):
         )
 
 class GameDetailSerializer(serializers.ModelSerializer):
+    parentalguides = ParentalGuideSerializer(many=True, read_only=True)
+    thumbnail = ThumbnailSerializer(many=True, read_only=True)
+    genra = GenreSerializer(many=True, read_only=True)
+    platform = PlatformSerializer(many=True, read_only=True)
     videos = VideoSerializer(many=True, read_only=True)
     photos = PhotoSerializer(many=True, read_only=True)
     casts = CastSerializer(many=True, read_only=True)
@@ -214,8 +245,12 @@ class GameDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = VideoGame
         fields = (
+                'id',
                 "title",
+                "year",
                 "cover",
+                "thumbnail",
+                "imdb_rating",
                 "metascore",
                 "popularity",
                 "sold",
@@ -223,11 +258,14 @@ class GameDetailSerializer(serializers.ModelSerializer):
                 "director",
                 "writer",
                 "award",
+                "platform",
                 "videos",
                 "photos",
                 "casts",
                 "genre",
+                "genra",
                 "certificate",
+                "parentalguides",
                 "trivias",
                 "quotes",
                 "goofs",
@@ -249,9 +287,12 @@ class GameDetailSerializer(serializers.ModelSerializer):
     goofs = GoofSerializer(many=True, read_only=True)
     quotes = QuoteSerializer(many=True, read_only=True)
     faqs = FrequentlyAskedQuestionSerializer(many=True, read_only=True)
-    certificate = ParentsGuideSerializer(many=True, read_only=True)
 
 class GameDetailSignedSerializer(serializers.ModelSerializer):
+    parentalguides = ParentalGuideSerializer(many=True, read_only=True)
+    thumbnail = ThumbnailSerializer(many=True, read_only=True)
+    genra = GenreSerializer(many=True, read_only=True)
+    platform = PlatformSerializer(many=True, read_only=True)
     videos = VideoSerializer(many=True, read_only=True)
     photos = PhotoSerializer(many=True, read_only=True)
     ratings = RatingSerializer(many=True, read_only=True)
@@ -261,8 +302,12 @@ class GameDetailSignedSerializer(serializers.ModelSerializer):
     class Meta:
         model = VideoGame
         fields = (
+                "id",
                 "title",
+                "year",
                 "cover",
+                "thumbnail",
+                "imdb_rating",
                 "ratings",
                 "watchlists",
                 "metascore",
@@ -271,11 +316,13 @@ class GameDetailSignedSerializer(serializers.ModelSerializer):
                 "director",
                 "writer",
                 "award",
+                "platform",
                 "videos",
                 "photos",
                 "casts",
-                "genre",
+                "genra",
                 "certificate",
+                "parentalguides",
                 "trivias",
                 "quotes",
                 "goofs",
@@ -289,6 +336,7 @@ class GameDetailSignedSerializer(serializers.ModelSerializer):
                 "nickname",
                 "company",
                 "color",
+                "soundmix",
         )
 
     reviews = ReviewSerializer(many=True, read_only=True)
@@ -296,18 +344,24 @@ class GameDetailSignedSerializer(serializers.ModelSerializer):
     goofs = GoofSerializer(many=True, read_only=True)
     quotes = QuoteSerializer(many=True, read_only=True)
     faqs = FrequentlyAskedQuestionSerializer(many=True, read_only=True)
-    certificate = ParentsGuideSerializer(many=True, read_only=True)
 
 class GameListSignedSerializer(serializers.ModelSerializer):
+    genra = GenreSerializer(many=True, read_only=True)
+    platform = PlatformSerializer(many=True, read_only=True)
     ratings = RatingSerializer(many=True, read_only=True)
     watchlists = WatchListSerializer(many=True, read_only=True)
     class Meta:
         fields = (
+                "id",
                 "title",
                 "cover",
                 "release_date",
+                "year",
                 "imdb_rating",
+                "metascore",
                 "certificate",
+                "platform",
+                "genra",
                 "ratings",
                 "watchlists",
         )

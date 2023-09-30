@@ -38,6 +38,7 @@ class VideoGame(models.Model):
     officialsite = models.CharField(max_length=300, default=None, null=True)
     nickname = models.CharField(max_length=300, default=None, null=True)
     release_date = models.DateField(default=None, null=True)
+    year = models.PositiveIntegerField(default=None, null=True)
     popularity = models.IntegerField(default=None, null=True)
     metascore = models.PositiveIntegerField(default=None, null=True)
     
@@ -189,6 +190,19 @@ class Photo(models.Model):
     def __str__(self):
         return f"{self.game.title} photos"
 
+class Thumbnail(models.Model):
+    game = models.ForeignKey(
+            VideoGame,
+            on_delete=models.CASCADE,
+            related_name="thumbnail",
+            null=True,
+            default=None,
+    )
+
+    thumbnail = models.FileField(upload_to="thumbnail/", null=True, default=None)
+    def __str__(self):
+        return f"{self.game.title} thumbnail"
+
 class Trivia(models.Model):
     game = models.ForeignKey(
             VideoGame,
@@ -252,6 +266,33 @@ class ParentsGuide(models.Model):
     intense_scene = models.CharField(max_length=1000, null=True, default=None)
     def __str__(self):
         return self.certification
+
+class Platform(models.Model):
+    game = models.ForeignKey(
+            VideoGame,
+            on_delete=models.CASCADE,
+            related_name="platform",
+            null=True,
+            default=None,
+    )
+    platform = models.CharField(max_length=1000, null=True, default=None)
+    def __str__(self):
+        return self.platform
+
+class Genre(models.Model):
+    game = models.ForeignKey(
+            VideoGame,
+            on_delete=models.CASCADE,
+            related_name="genra",
+            null=True,
+            default=None,
+    )
+    genre = models.CharField(max_length=1000, null=True, default=None)
+    def __str__(self):
+        return self.genre
+
+
+
 
 class Help(models.Model):
     general_information = models.CharField(max_length=1000, null=True, default=None)

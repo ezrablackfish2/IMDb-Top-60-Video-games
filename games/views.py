@@ -2,6 +2,8 @@ from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from rest_framework import generics, permissions
 from rest_framework.permissions import IsAuthenticated
+from django.shortcuts import redirect
+
 
 from .models import (
         VideoGame,
@@ -327,3 +329,4 @@ class CastFaqsList(generics.ListAPIView):
         cast = Cast.objects.get(id=cast_id)
 
         return CastFaqs.objects.filter(game=cast)
+

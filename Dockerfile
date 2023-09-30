@@ -6,6 +6,8 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /home/ezra/Documents/IMDb/
 
+RUN apt-get update && apt-get install -y postgresql-client
+
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 

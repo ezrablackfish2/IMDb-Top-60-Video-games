@@ -27,3 +27,7 @@ class AccountSerializer(serializers.ModelSerializer):
         model = IMDbUser
         fields = ("cover", "username", "user_id", "bio", "nickname",)
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = IMDbUser
+        fields = ("username", )

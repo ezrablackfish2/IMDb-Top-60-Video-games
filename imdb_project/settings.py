@@ -78,12 +78,32 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CORS_ORIGIN_WHITELIST = (
-"http://localhost:3000",
-"http://localhost:8000",
-)
+#CORS_ORIGIN_WHITELIST = (
+#"http://172.18.0.1:3000",
+#"http://localhost:3000",
+#"http://localhost:8000",
+#"http://0.0.0.0:8000",
+#)
 
-CSRF_TRUSTED_ORIGINS = ["https://imdb-top-60-video-games-ezra.onrender.com"]
+CORS_ALLOW_ALL_ORIGINS = True;
+CORS_ALLOW_CREDENTIALS = True;
+
+CORS_ALLOW_METHODS = [
+        'GET',
+        'POST',
+        'PUT',
+        'PATCH',
+        'DELETE',
+        ]
+
+CSRF_TRUSTED_ORIGINS = [
+        "https://imdb-top-60-video-games-ezra.onrender.com",
+        "http://localhost:3000",
+        "http://172.18.0.1:3000",
+        "http://0.0.0.0:8000",
+        "http://localhost:8000",
+        ]
+#CSRF_TRUSTED_ORIGINS = ['*']
 
 
 ROOT_URLCONF = "imdb_project.urls"
@@ -120,19 +140,19 @@ WSGI_APPLICATION = "imdb_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#DATABASES = {
-#    "default": {
-#        "ENGINE": "django.db.backends.postgresql",
-#        "NAME": "postgres",
-#        "USER": "postgres",
-#        "PASSWORD": "imdb@12345",
-#        "HOST": "db",
-#        "PORT": 5432,
-#    }
-#}
 DATABASES = {
-        "default": dj_database_url.parse("postgres://imdbgames_user:4d5HJyuSj5tzayyM5EqnSCVi1BRIgMvV@dpg-civs6q6nqql48o2gd1cg-a.ohio-postgres.render.com/imdbgames")
-        }
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "postgres",
+        "USER": "postgres",
+        "PASSWORD": "imdb@12345",
+        "HOST": "db",
+        "PORT": 5432,
+    }
+}
+#DATABASES = {
+#        "default": dj_database_url.parse("postgres://imdbgames_user:4d5HJyuSj5tzayyM5EqnSCVi1BRIgMvV@dpg-civs6q6nqql48o2gd1cg-a.ohio-postgres.render.com/imdbgames")
+#        }
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -198,7 +218,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ],
 }
 LOGIN_REDIRECT_URL = '/'
