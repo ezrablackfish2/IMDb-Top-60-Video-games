@@ -98,6 +98,7 @@ CORS_ALLOW_METHODS = [
 
 CSRF_TRUSTED_ORIGINS = [
         "https://imdb-top-60-video-games-ezra.onrender.com",
+        "https://imdb-top-60-video-games-ezra-lnlm.onrender.com",
         "http://localhost:3000",
         "http://172.18.0.1:3000",
         "http://0.0.0.0:8000",
