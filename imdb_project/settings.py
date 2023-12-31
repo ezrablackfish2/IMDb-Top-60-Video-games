@@ -164,7 +164,7 @@ WSGI_APPLICATION = "imdb_project.wsgi.application"
 #    }
 #}
 DATABASES = {
-        "default": dj_database_url.parse("postgres://ezra:zFKAFYSpTDJ4aeDLmQuNonZDGy0ckZJL@dpg-ckbtv9msmu8c73bb79qg-a.ohio-postgres.render.com/imdbgames_543z")
+        "default": dj_database_url.parse("postgres://ezra:88hhJv1soP6OyAoZ4Nhk0uwH6JciFNRN@dpg-cm8hosocmk4c739237eg-a.ohio-postgres.render.com/imdbgames_2j89")
         }
 #Password validation
 #https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
